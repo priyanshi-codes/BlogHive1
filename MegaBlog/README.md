@@ -1,4 +1,4 @@
-# MegaBlog
+# BlogHive
 MegaBlog is a blogging platform built with React, Redux, Appwrite, and TailwindCSS. This project demonstrates user authentication, post creation, editing, deletion, and file uploads using Appwrite.
 
 ## Project Structure
