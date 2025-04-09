@@ -18,24 +18,25 @@ export class AuthService{
      //method1 is to create account
     async createAccount({name,email, password}){
       try {
-        const userAccount= await this.account.create(ID.unique(),email, password,name)
+        const userAccount= await this.account.create(ID.unique(),email, password, name)
         if (userAccount) {
             //call another method to create user
-            return this.login({email, password})   
+            return  await this.login({email, password})   
         } else {
             return userAccount;
             
         }
         
       } catch (error) {
-        throw ErrorEvent;
+        throw new Error(error.message);
       }  
     }
      
     //method2 is to login
     async login({email, password}){
         try {
-            return await this.account.createEmailSession(email, password);
+        // @ts-ignore
+        return await this.account.createEmailPasswordSession(email, password);
             //createEmailSession is from appwrite documentatiion
     
         } catch (error) {

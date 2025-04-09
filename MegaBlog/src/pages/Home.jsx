@@ -26,10 +26,12 @@ function Home() {
     }
     return (
         <div className='w-full py-8'>
-          <Container>
-            <div className='w-full flex justify-center'>
-            {posts.map((post)=>(<PostCard key={post.$id} {...post}/>))}
-            </div>
+          <Container className='flex flex-col gap-4'>
+            {posts.map((post)=>{
+              <div key = {post.$id} className = 'p-2 w-1/4'>
+                <PostCard {...post}/>
+              </div>
+            })}
           </Container>
           
         </div>
